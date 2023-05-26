@@ -16,3 +16,25 @@ extern "C" {
 pub use self::_IoGetCurrentIrpStackLocation as IoGetCurrentIrpStackLocation;
 
 pub use self::_KeQuerySystemTime as KeQuerySystemTime;
+
+
+#[macro_export]
+macro_rules! InitializeObjectAttributes {
+    ($p:expr, $n:expr, $a:expr, $r:expr, $s:expr) => {
+        {
+            $p.Length = std::mem::size_of::<OBJECT_ATTRIBUTES>() as ULONG;
+            $p.RootDirectory = $r;
+            $p.Attributes = $a;
+            $p.ObjectName = $n;
+            $p.SecurityDescriptor = $s;
+            $p.SecurityQualityOfService = std::ptr::null_mut();
+        }
+    };
+}
+
+#[macro_export]
+macro_rules! NT_SUCCESS {
+    ($status:expr) => {
+        ($status as NTSTATUS) >= 0
+    };
+}

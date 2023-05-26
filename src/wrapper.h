@@ -2,6 +2,7 @@
 
 #include "ntdef.h"
 #include "ntifs.h"
+#include "ntddbeep.h"
 
 typedef union _KGDTENTRY64
 {
