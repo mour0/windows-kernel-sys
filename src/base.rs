@@ -6,6 +6,12 @@ pub use cty::*;
 
 include!(concat!(env!("OUT_DIR"), "/base.rs"));
 
+// Types
+pub type BYTE = cty::c_uchar;
+pub type WORD = cty::c_ushort;
+
+
+// Constants
 pub const STATUS_SUCCESS: NTSTATUS = 0x00000000 as u32 as i32;
 pub const STATUS_WAIT_0: NTSTATUS = 0x00000000 as u32 as i32;
 pub const STATUS_WAIT_1: NTSTATUS = 0x00000001 as u32 as i32;
