@@ -12,7 +12,7 @@ extern "C" {
     
     pub fn _KeQuerySystemTime(current_time: PLARGE_INTEGER);
 
-    pub fn _MmCopyVirtualMemory(source_process: PEPROCESS, source_address: PVOID, target_process: PEPROCESS, target_address: PVOID, buffer_size: SIZE_T, previous_mode: KPROCESSOR_MODE, return_size: PSIZE_T) -> NTSTATUS;
+    pub fn MmCopyVirtualMemory(source_process: PEPROCESS, source_address: PVOID, target_process: PEPROCESS, target_address: PVOID, buffer_size: SIZE_T, previous_mode: KPROCESSOR_MODE, return_size: PSIZE_T) -> NTSTATUS;
 
     pub fn _PsGetProcessWow64Process(process: PEPROCESS) -> PVOID;
 }
@@ -21,7 +21,7 @@ pub use self::_IoGetCurrentIrpStackLocation as IoGetCurrentIrpStackLocation;
 
 pub use self::_KeQuerySystemTime as KeQuerySystemTime;
 
-pub use self::_MmCopyVirtualMemory as MmCopyVirtualMemory;
+//pub use self::_MmCopyVirtualMemory as MmCopyVirtualMemory;
 
 pub use self::IoGetCurrentProcess as PsGetCurrentProcess;
 
